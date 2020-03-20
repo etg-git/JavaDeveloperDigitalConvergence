@@ -12,9 +12,9 @@
 ### 교재
 
 ####
-> <img src ="/image/javabook.jpg" width="230px">
+> <img src ="image/javabook.jpg" width="230px">
 
-> **03-16 ~**
+> **03-16** ~
 
 
 ---
