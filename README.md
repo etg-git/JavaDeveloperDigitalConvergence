@@ -29,11 +29,10 @@ JAVA base DigitalConvergence Developer
 
 </details>
 
-#### 실습1
+## 실습1
 
-  **<details><summary>정보</summary>**
+**<details><summary>정보</summary>**
 
-#####실습 1
  **UML**
 
 //VendingMachine has-a beverage
