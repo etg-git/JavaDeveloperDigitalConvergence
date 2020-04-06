@@ -31,15 +31,15 @@ JAVA base DigitalConvergence Developer
 
 ## 실습1
 
-**<details><summary>정보</summary>**
+**<details><summary>자판기 UML</summary>**
 
  **UML**
 
-//VendingMachine has-a beverage
+//VendingMachine has-a Beverage
 //VendingMachine has-a Money
 |      VendingMachine   |
 |:------------|
-|멤버변수|
+|**멤버변수**|
 |- color : String|
 |- balance : int|
 |- manufacturer : String|
@@ -50,23 +50,30 @@ JAVA base DigitalConvergence Developer
 |- powerAde : Beverage|
 |- sprite : Beverage|
 |- cider : Beverage|
-|메소드|
+|**static 상수**|
+|+ D_COKE : int = 1|
+|+ D_PEPSI : int = 2|
+|+ D_POWERADE : int = 3|
+|+ D_SPRITE : int = 4|
+|+ D_CIDER : int = 5|
+|**메소드**|
 |getters / setters|
 |+ VendingMachine(color : String, manufacturer : String, coke : Beverage, pepsi : Beverage, powerAde : Beverage, sprite : Beverage, cider : Beverage, money : Money, Coin : Money)
 |+ inputMoneySum() : void|
 |+ choicePick() : Beverage|
-|- result(beverage : Beverage, balance : int, drink : int) : Beverage
+|- returnDrink(beverage : Beverage, balance : int, drink : int) : Beverage
 |+ returnMoney() : int|
 |- drinkDecrease(drink : int)|
 |- soldOut(number : int) : boolean|
 |+ toString() : String|
+
 |Beverage|
 |:--------|
-|멤버변수|
+|**멤버변수**|
 |- name : String |
 |- count : int|
 |- amount : int|
-|메소드|
+|**메소드**|
 |+ Beverage(name : String, amount : int, count : int)|
 |+ Beverage(name : String, amount : int)|
 |+ getters/setters|
@@ -74,13 +81,13 @@ JAVA base DigitalConvergence Developer
 
 |Money|
 |:------|
-|멤버변수|
+|**멤버변수**|
 |- tenThousandM : int|
 |- fiveThousandM : int|
 |- oneThousandM : int|
 |- fiveHundredC : int|
 |- oneHundredC : int|
-|메소드|
+|**메소드**|
 |+ getters/setters|
 |+ moneySum() : int|
 |+ coinSum() : int|
