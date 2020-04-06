@@ -14,16 +14,25 @@ JAVA base DigitalConvergence Developer
 
 ## 교재
   **<details><summary>정보</summary>**
+
 ####
 > <img src ="image/javabook.jpg" width="230px">
 
 > **03-16** ~
 
-> <img src = "image/sql.jpg" width="230px" height = "280px">
+> <img src = "image/sql.jpg" width="230px" height = "300px">
 
 > **~**
 
 > <img src = "image/springInAction.png" width="230px">
+
+> **~**
+
+> <img src = "image/webprogramming.jpg" width = "230px">
+
+> **~**
+
+> <img src = "image/jsp,jquery.png" width = "230px">
 
 > **~**
 
@@ -32,8 +41,6 @@ JAVA base DigitalConvergence Developer
 ## 실습1
 
 **<details><summary>자판기 UML</summary>**
-
- **UML**
 
 //VendingMachine has-a Beverage
 //VendingMachine has-a Money
