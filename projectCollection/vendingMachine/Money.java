@@ -1,4 +1,3 @@
-//VendingMachine has-a Beverage
 //VendingMachine has-a Money
 import java.util.Scanner;
 class Money {
@@ -7,7 +6,7 @@ class Money {
 	private int oneThousandM;
 	private int fiveHundredC;
 	private int oneHundredC;
-	
+
 	public Money(int tenThousandM, int fiveThousandM, int oneThousandM) {
 		setTenThousandM(tenThousandM);
 		setFiveThousandM(fiveThousandM);
@@ -17,7 +16,7 @@ class Money {
 		setFiveHundredC(fiveHundredC);
 		setOneHundredC(oneHundredC);
 	}
-	
+
 	public int getTenThousandM() {
 		return tenThousandM;
 	}
@@ -57,24 +56,24 @@ class Money {
 	public void setOneHundredC(int oneHundredC) {
 		this.oneHundredC = oneHundredC;
 	}
-	
+
 	public int moneySum() {
 		int M_10000 = 10000 * getTenThousandM();
 		int M_5000 = 5000 * getFiveThousandM();
 		int M_1000 = 1000 * getOneThousandM();
-		
+
 		return M_10000 + M_5000 + M_1000;
 	}
 	public int coinSum() {
 		int C_500 = 500 * getFiveHundredC();
 		int C_100 = 100 * getOneHundredC();
-		
+
 		return C_500 + C_100;
 	}
 	public String toString() {
 		if(moneySum() !=0) {
-			return "ÁöÆó : " + moneySum() + "¿ø ÅõÀÔ";
+			return "ï¿½ï¿½ï¿½ï¿½ : " + moneySum() + "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 		}
-		else return "µ¿Àü : " + coinSum() + "¿ø ÅõÀÔ";
+		else return "ï¿½ï¿½ï¿½ï¿½ : " + coinSum() + "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 	}
 }

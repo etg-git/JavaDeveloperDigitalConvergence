@@ -1,10 +1,9 @@
 //VendingMachine has-a Beverage
-//VendingMachine has-a Money
 class Beverage {
 	private String name;
 	private int count;
 	private int amount;
-	
+
 	public Beverage(String name, int amount, int count) {
 		setName(name);
 		setCount(count);
@@ -23,7 +22,7 @@ class Beverage {
 	public int getAmount() {
 		return amount;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -35,6 +34,6 @@ class Beverage {
 	}
 
 	public String toString() {
-			return  name + " »Ì¾Ò½À´Ï´Ù. (" + count +"°³ ³²À½)";
+			return  name + " ï¿½Ì¾Ò½ï¿½ï¿½Ï´ï¿½. (" + count +"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)";
 	}
 }

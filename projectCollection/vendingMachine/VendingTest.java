@@ -1,25 +1,26 @@
 //VendingMachine has-a Beverage
 //VendingMachine has-a Money
+
 import java.util.Scanner;
 public class VendingTest {
 	public static void main(String[] args) {
-		
-		Beverage coke = new Beverage("ÄÚÄ«ÄÝ¶ó", 800, 3);
-		Beverage pepsi = new Beverage("Æé½Ã", 800);
-		Beverage powerAde = new Beverage("ÆÄ¿ö¿¡ÀÌµå", 1000, 3);
-		Beverage sprite = new Beverage("½ºÇÁ¶óÀÌÆ®", 1500, 5);
-		Beverage cider = new Beverage("Ä¥¼º»çÀÌ´Ù", 1200, 1);
-		
+
+		Beverage coke = new Beverage("ï¿½ï¿½Ä«ï¿½Ý¶ï¿½", 800, 3);
+		Beverage pepsi = new Beverage("ï¿½ï¿½ï¿½ï¿½", 800);
+		Beverage powerAde = new Beverage("ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ìµï¿½", 1000, 3);
+		Beverage sprite = new Beverage("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®", 1500, 5);
+		Beverage cider = new Beverage("Ä¥ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½", 1200, 1);
+
 		Money money = new Money(0, 1, 3);
 		Money coin = new Money(2, 5);
-		
+
 		System.out.println(money);
 		System.out.println(coin);
-		VendingMachine me = new VendingMachine("»¡°£»ö", "À½·á¼öÀÚÆÇ±â", coke, pepsi, powerAde, sprite, cider, money, coin);
+		VendingMachine me = new VendingMachine("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½", coke, pepsi, powerAde, sprite, cider, money, coin);
 		me.inputMoneySum();
-		
+
 		System.out.println(me.choicePick());
-		
+
 		me.returnMoney();
 	}
 }

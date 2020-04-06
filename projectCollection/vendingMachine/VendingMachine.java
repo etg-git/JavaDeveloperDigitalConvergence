@@ -1,26 +1,27 @@
 //VendingMachine has-a Beverage
 //VendingMachine has-a Money
+
 import java.util.Scanner;
 class VendingMachine {
-	private String color; // »ö»ó
-	private int balance; 
-	private String manufacture; // Á¦Á¶»ç
+	private String color; // ï¿½ï¿½ï¿½ï¿½
+	private int balance;
+	private String manufacture; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	private Money money; //ÁöÆó
-	private Money coin; //µ¿Àü
-	
+	private Money money; //ï¿½ï¿½ï¿½ï¿½
+	private Money coin; //ï¿½ï¿½ï¿½ï¿½
+
 	private Beverage coke;
 	private Beverage pepsi;
 	private Beverage powerAde;
 	private Beverage sprite;
 	private Beverage cider;
-	
+
 	static final int d_coke = 1;
 	static final int d_pepsi = 2;
 	static final int d_powerAde = 3;
 	static final int d_sprite = 4;
 	static final int d_cider = 5;
-	
+
 	public VendingMachine(String color, String manufacture, Beverage coke, Beverage pepsi, Beverage powerAde, Beverage sprite, Beverage cider, Money money, Money coin) {
 		setColor(color);
 		setManufacture(manufacture);
@@ -94,27 +95,27 @@ class VendingMachine {
 	}
 	public void inputMoneySum() {
 		int sum = money.moneySum() + coin.coinSum();
-		balance += sum;	
+		balance += sum;
 	}
 	public Beverage choicePick() {
-		
+
 			Scanner sc = new Scanner(System.in);
 			int drink;
 
 			String info = "=====================================================\n";
 				info += "||         	                                    ||\n";
-				info +=	"||  1.ÄÚÄ«ÄÝ¶ó         2. Æé½Ã         3.ÆÄ¿ö¿¡ÀÌµå ||\n";
-				info +=	"||    800¿ø(" +soldOut(coke.getCount()) + ")    800¿ø(" +soldOut(pepsi.getCount()) + ")      1000¿ø(" +soldOut(powerAde.getCount()) + ") ||\n";
-				info +=	"||  4.½ºÇÁ¶óÀÌÆ®            5.Ä¥¼º»çÀÌ´Ù            ||\n";
-				info +=	"||    1500¿ø("+soldOut(sprite.getCount())+")          1200¿ø(" +soldOut(cider.getCount()) + ")  	    ||\n";
+				info +=	"||  1.ï¿½ï¿½Ä«ï¿½Ý¶ï¿½         2. ï¿½ï¿½ï¿½ï¿½         3.ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ||\n";
+				info +=	"||    800ï¿½ï¿½(" +soldOut(coke.getCount()) + ")    800ï¿½ï¿½(" +soldOut(pepsi.getCount()) + ")      1000ï¿½ï¿½(" +soldOut(powerAde.getCount()) + ") ||\n";
+				info +=	"||  4.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®            5.Ä¥ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½            ||\n";
+				info +=	"||    1500ï¿½ï¿½("+soldOut(sprite.getCount())+")          1200ï¿½ï¿½(" +soldOut(cider.getCount()) + ")  	    ||\n";
 				info += "||         	                                    ||\n";
-				info += "||                  0 : ÀÜµ·¹ÝÈ¯                    ||\n";
+				info += "||                  0 : ï¿½Üµï¿½ï¿½ï¿½È¯                    ||\n";
 				info +=	"=====================================================\n";
 
 				System.out.println(info);
-				System.out.print("À½·á¼ö¸¦ ¼±ÅÃÇÏ¼¼¿ä : ");
+				System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ : ");
 				drink = sc.nextInt();
-				
+
 			if(d_coke == drink && balance >= 800 && soldOut(coke.getCount())) {
 				 return result(getCoke(), balance-=800, drink);
 			}
@@ -134,24 +135,24 @@ class VendingMachine {
 				 return null;
 			 }
 			 else {
-				System.out.println("´Ù½Ã»ÌÀ¸¼¼¿ä");
+				System.out.println("ï¿½Ù½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 				return choicePick();
 			 }
 	}
 	private Beverage result(Beverage beverage,int balance, int drink) {
 			DrinkDecrease(drink);
 			Scanner sc = new Scanner(System.in);
-			System.out.print("´õ»Ì±â : 1, ´õ»ÌÁö¾Ê±â : ¾Æ¹«¹øÈ£  ====>  ");
+			System.out.print("ï¿½ï¿½ï¿½Ì±ï¿½ : 1, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ : ï¿½Æ¹ï¿½ï¿½ï¿½È£  ====>  ");
 			int select = sc.nextInt();
-	
+
 			if(select == 1) {
 				System.out.println(beverage);
 				return choicePick();
 			}
 			else return beverage;
 	}
-	public int returnMoney() { 
-		System.out.println(getBalance() + "¿ø ¹ÝÈ¯ÇÕ´Ï´Ù");
+	public int returnMoney() {
+		System.out.println(getBalance() + "ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½");
 		return getBalance();
 	}
 	private void DrinkDecrease(int drink) {
@@ -171,16 +172,16 @@ class VendingMachine {
 			cider.setCount(cider.getCount()-1);
 		}
 	}
-	private boolean soldOut(int number) { // À½·á¼ö ÀÖÀ¸¸é true ¾øÀ¸¸é false
-		if(number <= 0) { //°¹¼ö°¡ 0ÀÏ¶§ false
+	private boolean soldOut(int number) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ false
+		if(number <= 0) { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ï¶ï¿½ false
 				return false;
-		} else { //°¹¼ö°¡ ¾ÆÁ÷ÀÖÀ»¶§ true
+		} else { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ true
 			return true;
 		  }
 	}
-	public String toString() {	
-		String info = balance + "¿ø ÀÜ¾×";
-		
+	public String toString() {
+		String info = balance + "ï¿½ï¿½ ï¿½Ü¾ï¿½";
+
 		return info;
 	}
 }
