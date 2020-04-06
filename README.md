@@ -28,3 +28,61 @@ JAVA base DigitalConvergence Developer
 > **~**
 
 </details>
+
+#### 실습1
+
+  **<details><summary>정보</summary>**
+
+#####실습 1
+ **UML**
+
+//VendingMachine has-a beverage
+//VendingMachine has-a Money
+|      VendingMachine   |
+|:------------|
+|멤버변수|
+|- color : String|
+|- balance : int|
+|- manufacturer : String|
+|- money : Money|
+|- coin : Money |
+|- coke : Beverage|
+|- pepsi : Beverage|
+|- powerAde : Beverage|
+|- sprite : Beverage|
+|- cider : Beverage|
+|메소드|
+|getters / setters|
+|+ VendingMachine(color : String, manufacturer : String, coke : Beverage, pepsi : Beverage, powerAde : Beverage, sprite : Beverage, cider : Beverage, money : Money, Coin : Money)
+|+ inputMoneySum() : void|
+|+ choicePick() : Beverage|
+|- result(beverage : Beverage, balance : int, drink : int) : Beverage
+|+ returnMoney() : int|
+|- drinkDecrease(drink : int)|
+|- soldOut(number : int) : boolean|
+|+ toString() : String|
+|Beverage|
+|:--------|
+|멤버변수|
+|- name : String |
+|- count : int|
+|- amount : int|
+|메소드|
+|+ Beverage(name : String, amount : int, count : int)|
+|+ Beverage(name : String, amount : int)|
+|+ getters/setters|
+|+ toString() : String|
+
+|Money|
+|:------|
+|멤버변수|
+|- tenThousandM : int|
+|- fiveThousandM : int|
+|- oneThousandM : int|
+|- fiveHundredC : int|
+|- oneHundredC : int|
+|메소드|
+|+ getters/setters|
+|+ moneySum() : int|
+|+ coinSum() : int|
+|+ toString() : String|
