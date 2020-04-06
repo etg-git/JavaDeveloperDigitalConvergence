@@ -1,3 +1,4 @@
+//VendingMachine has-a Beverage
 //VendingMachine has-a Money
 import java.util.Scanner;
 class Money {
@@ -76,4 +77,4 @@ class Money {
 		}
 		else return "동전 : " + coinSum() + "원 투입";
 	}
-]
+}

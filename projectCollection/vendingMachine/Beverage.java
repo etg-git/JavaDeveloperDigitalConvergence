@@ -1,4 +1,5 @@
 //VendingMachine has-a Beverage
+//VendingMachine has-a Money
 class Beverage {
 	private String name;
 	private int count;

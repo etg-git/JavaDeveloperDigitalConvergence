@@ -1,3 +1,5 @@
+//VendingMachine has-a Beverage
+//VendingMachine has-a Money
 import java.util.Scanner;
 public class VendingTest {
 	public static void main(String[] args) {
