@@ -34,6 +34,11 @@ class Beverage {
 	}
 
 	public String toString() {
-			return  name + " �̾ҽ��ϴ�. (" + count +"�� ����)";
+		if(getName() == null) {
+			return "음료수없음";
+		}
+		else {
+			return  name +"뽑음" + "(" + count +"개 남음)";
+		}
 	}
 }

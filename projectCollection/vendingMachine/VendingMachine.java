@@ -136,7 +136,6 @@ class VendingMachine {
 				 return choicePick();
 			 }
 	}
-	//pick메소드 중복되는 구문이 많아 간략하게 함 
 	private Beverage returnDrink(Beverage beverage, int balance, int drink) {
 			drinkDecrease(drink);
 			System.out.println(beverage);
