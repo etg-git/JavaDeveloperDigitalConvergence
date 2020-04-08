@@ -40,7 +40,7 @@ JAVA base DigitalConvergence Developer
 
 ## 실습1
 
-**<details><summary>자판기 UML</summary>**
+**<details><summary>VendingMachine UML</summary>**
 
 //VendingMachine has-a Beverage
 //VendingMachine has-a Money
@@ -99,3 +99,58 @@ JAVA base DigitalConvergence Developer
 |+ moneySum() : int|
 |+ coinSum() : int|
 |+ toString() : String|
+
+</details>
+
+**<details><summary>StarUnit UML</summary>**
+
+//Mutallisk is-a Unit
+//Medic is-a Unit
+//Zealot is-a Unit
+
+|Unit|
+|:-----|
+|- name : String|
+|- hp : int|
+|- mineral : int|
+|- gas : int|
+|- moveSpeed : double|
+|- powerType : String|
+|- tribe : String|
+|+ Unit(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, tribe : String)|
+|+ getters/setters|
+|+ move(distance : int) : int|
+|+ heal(u1 : Unit, heal double, maxHp int) : Unit|
+|+ attack(u1 : Unit, power : int) : Unit|
+|+ toString() : String|
+
+|Zealot|
+|:------|
+|- power : int|
+|- shield : int|
+|+ MAX_POWER : int = 22|
+|+ Zealot(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, shield : int, power : int)|
+|+ getters/setters|
+|+ moveUpgrade() : int|
+|+ attackUpgrade() :int|
+|+ toString() : String|
+
+|Medic|
+|:----|
+|- heal : double|
+|- maxEnergy : int|
+|+ Medic(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, heal : double, maxEnergy : int)|
+|+ getters/setters|
+|+ stimPack() : void|
+|+ maxEnergyUpgrade() : int|
+|+ toString() : String|
+
+|Mutallisk|
+|:----|
+|- power : int|
+|+ Mutallisk(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, tribe : String, power : int)|
+|+ getters/setters|
+|+ powerUpgrade() : int|
+|+ toString() : String|
+
+</details>
