@@ -1,26 +1,36 @@
-class Zealot extends Unit {
-	private int power;
+class Zealot extends AttackUnit {
+	//100,0
 	private int shield;
-	public static final int MAX_POWER = 22;
-
-	public Zealot(String name, int hp, int mineral, int gas, double moveSpeed
-		, String powerType, String tribe, int shield, int power) {
-		super(name, hp, mineral, gas, moveSpeed, powerType, tribe);
-		setPower(power);
-		setShield(shield);
-	}
+	public final int MAX_POWER = 22;
+	public final int MINERAL = 100;
+	public final int GAS = 0;
 	
-	public int getPower() {
-		return power;
+	public final int ZEALOT_MAX_HP = 100;
+
+	public Zealot(String name, int hp, double moveSpeed
+		, String tribe, int power, String attType, int shield) {
+		super(name, hp, moveSpeed, tribe, power, attType);
+		setShield(shield);
 	}
 	public int getShield() {
 		return shield;
 	}
-	public void setPower(int power) {
-		this.power = power;
-	}
 	public void setShield(int shield) {
 		this.shield = shield;
+	}
+	@Override
+	protected void attack(AttackUnit au) {
+		if(au.getAttType()== "공중") {
+			System.out.println("못때림");
+			au.getHp();
+		}
+		else if(au.getHp() <= MIN_HP) {
+			System.out.println(au.getName() + "가 죽음");
+			au.setHp(MIN_HP);
+		} else {
+			System.out.println(getName() + "가 "+ au.getName() + "을(를) 공격력" + getPower() + "로 공격합니다.");
+			au.setHp(au.getHp() - getPower());
+		}
 	}
 	// 1.875 -> 2.813
 	public double moveUpgrade() {
@@ -29,7 +39,8 @@ class Zealot extends Unit {
 		return getMoveSpeed();
 	}
 	//1,2,3단계 업글
-	public int attackUpgrade() {
+	@Override
+	protected int powerUpgrade() {
 		if(MAX_POWER <= getPower()) {
 			System.out.println("더이상 업글 할 수 없습니다.");
 
@@ -43,6 +54,7 @@ class Zealot extends Unit {
 	}
 	@Override
 	public String toString() {
-		return "질럿 스탯 \n" + super.toString() + "power : " + power + "\nshield : " + shield + "\n";
+		return "질럿 스탯 \n" + super.toString() + "\nshield : " + shield + "\n"
+				+ "미네랄 : " + MINERAL + "\n가스 : " + GAS;
 	}
 }

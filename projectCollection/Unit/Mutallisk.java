@@ -1,19 +1,17 @@
-class Mutallisk extends Unit {
-	private int power;
-	public static final int MAX_POWER2 = 12;
-	public Mutallisk(String name, int hp, int mineral, int gas, double moveSpeed,
-		String powerType, String tribe, int power) {
-		super(name, hp, mineral, gas, moveSpeed, powerType, tribe);
-		setPower(power);
+class Mutallisk extends AttackUnit {
+	//100 100
+	public final int MAX_POWER = 12;
+	public final int MINERAL = 100;
+	public final int GAS = 100;
+
+	public final int MUTALLISK_MAX_HP = 100;
+
+	public Mutallisk(String name, int hp, double moveSpeed, String tribe, int power, String attType) {
+		super(name, hp, moveSpeed, tribe, power, attType);
 	}
-	public int getPower() {
-		return power;
-	}
-	public void setPower(int power) {
-		this.power = power;
-	}
-	public int powerUpgrade() {
-		if(MAX_POWER2 <= getPower()) {
+	@Override
+	protected int powerUpgrade() {
+		if(MAX_POWER <= getPower()) {
 			System.out.println("´õÀÌ»ó ¾÷±Û ¸øÇÔ");
 			return getPower();
 		}
@@ -23,9 +21,19 @@ class Mutallisk extends Unit {
 			return getPower();
 		}
 	}
+	//overroading
+	public void attack(AttackUnit au) {
+		System.out.println(getName() + "°¡(ÀÌ) "+ au.getName() + "À»(¸¦) °ø°Ý·Â" + getPower() + "·Î °ø°ÝÇÕ´Ï´Ù.");
+		if(au.getHp() <= MIN_HP) {
+			System.out.println(au.getName() + "°¡ Á×À½");
+			au.setHp(MIN_HP);
+		} else {
+			au.setHp(au.getHp() - getPower());
+		}
+	}
 	@Override
 	public String toString() {
-		return "¹ÂÅ» ½ºÅÝ \n" + super.toString() + "power : " + power + "\n";
+		return "¹ÂÅ» ½ºÅÝ \n" + super.toString() + "\n¹Ì³×¶ö : " + MINERAL + "\n°¡½º : " + GAS;
 	}
 
 }
