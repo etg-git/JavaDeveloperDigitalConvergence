@@ -104,53 +104,72 @@ JAVA base DigitalConvergence Developer
 
 **<details><summary>StarUnit UML</summary>**
 
-//Mutallisk is-a Unit
 //Medic is-a Unit
-//Zealot is-a Unit
-
-|Unit|
+//Zealot is-a AttackUnit
+//Mutallisk is-a AttackUnit
+//AttackUnit is-a AttackUnit
+|Unit ((abstract))|
 |:-----|
 |- name : String|
 |- hp : int|
-|- mineral : int|
-|- gas : int|
 |- moveSpeed : double|
 |- powerType : String|
 |- tribe : String|
-|+ Unit(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, tribe : String)|
+|- x : int|
+|- y : int|
+|+ Unit(name : String, hp : int, moveSpeed : double, powerType : String, tribe : String)|
 |+ getters/setters|
-|+ move(distance : int) : int|
-|+ heal(u1 : Unit, heal double, maxHp int) : Unit|
-|+ attack(u1 : Unit, power : int) : Unit|
+|+ move(x : int, y : int) : void|
 |+ toString() : String|
+
+|AttackUnit ((abstract))|
+|:--------------------|
+|- power : int|
+|- attType : String|
+|- AttackUnit(name : String, hp : int, moveSpeed : double, tribe : String, power : int, attType : String)|
+|+ getters/setters|
+|+ toString() : String|
+|# attack(au : AttackUnit) : void ((abstract))|
+|# powerUpgrade() : int((abstract))|
 
 |Zealot|
 |:------|
-|- power : int|
 |- shield : int|
 |+ MAX_POWER : int = 22|
-|+ Zealot(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, shield : int, power : int)|
+|+ MINERAL : int = 100|
+|+ GAS : int = 0|
+|+ Zealot(name : String, hp : int, moveSpeed : double, tribe : String, powerType : String, shield : int, power : int, attType : String, shield : int)|
 |+ getters/setters|
-|+ moveUpgrade() : int|
-|+ attackUpgrade() :int|
+|+ moveUpgrade() : double|
+|@Override|
+|# powerUpgrade() :int|
+|# attack(au : AttackUnit) : void|
 |+ toString() : String|
 
 |Medic|
 |:----|
-|- heal : double|
-|- maxEnergy : int|
-|+ Medic(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, heal : double, maxEnergy : int)|
+|- heal : int|
+|- energy : int|
+|+ MAX_ENERGY : int = 250|
+|+ MINERAL : int = 50|
+|+ GAS : int = 25|
+|+ Medic(name : String, hp : int, moveSpeed : double, tribe : String,  heal : int, energy : int)|
 |+ getters/setters|
-|+ stimPack() : void|
 |+ maxEnergyUpgrade() : int|
+|+ heal(z : Zealot) : void|
+|+ heal(m : Medic) : void|
 |+ toString() : String|
 
 |Mutallisk|
 |:----|
-|- power : int|
-|+ Mutallisk(name : String, hp : int, mineral : int, gas : int, moveSpeed : double, powerType : String, tribe : String, power : int)|
+|+ MAX_POWER : int = 12|
+|+ MINERAL : int = 100|
+|+ GAS : int = 100|
+|+ Mutallisk(name : String, hp : int, moveSpeed : double, tribe : String, power : int, attType : String)|
 |+ getters/setters|
-|+ powerUpgrade() : int|
+|@Override
+|# powerUpgrade() : int|
+|# attack(au : AttackUnit) : void|
 |+ toString() : String|
 
 </details>
