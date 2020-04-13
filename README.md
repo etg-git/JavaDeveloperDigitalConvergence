@@ -104,15 +104,26 @@ JAVA base DigitalConvergence Developer
 
 **<details><summary>StarUnit UML</summary>**
 
--((interface)) IPowerUpgrade, IMoveUpgrade, IAllAttack, IHeal
--((abstract)) Unit
--((abstract)) GroundUnit is-a Unit
--((abstract)) AirUnit is-a Unit
--Zealot is-a GroundUnit is-a IMoveUpgrade,IGroundAttack,IPowerUpgrade
--Mutallisk is-a AirUnit is-a IAllAttack, IPowerUpgrade
--Medic is-a GroundUnit is-a IHeal
+**((interface)) IPowerUpgrade, IMoveUpgrade, IAllAttack, IHeal**
 
--((abstract)) Building
--((abstract)) MovingBuilding is-a Building
--Command is-a MovingBuilding
--Nexus is-a Building
+**((abstract)) Unit**
+
+**((abstract)) GroundUnit is-a Unit**
+
+**((abstract)) AirUnit is-a Unit**
+
+**Zealot is-a GroundUnit is-a IMoveUpgrade,IGroundAttack,IPowerUpgrade**
+
+**Mutallisk is-a AirUnit is-a IAllAttack, IPowerUpgrade**
+
+**Medic is-a GroundUnit is-a IHeal**
+
+**((abstract)) Building**
+
+**((abstract)) MovingBuilding is-a Building**
+
+**Command is-a MovingBuilding**
+
+**Nexus is-a Building**
+
+</details>
