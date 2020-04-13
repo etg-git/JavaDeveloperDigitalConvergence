@@ -1,46 +1,53 @@
 class StarCraftTribeTest {
-	public static void main(String[] args) {
-		//Àú±× String name, int hp, double moveSpeed, String tribe, int power, String attType
-		//Å×¶õ String name, int hp, double moveSpeed, String tribe, int heal, int energy
-		//ÇÁ·ÎÅä½º String name, int hp, double moveSpeed, String tribe, int power, String attType, int shield
-		Zealot z1 = new Zealot("Áú·µ", 100, 1.875, "ÇÁ·ÎÅä½º", 16, "Áö»ó", 60);
-		Zealot z2 = new Zealot("Áú·µ", 100, 1.875, "ÇÁ·ÎÅä½º", 16, "Áö»ó", 60);
-		System.out.println(z1);
-		System.out.println();		
-		z1.move(5,5); //ÀÌµ¿
-		z1.moveUpgrade(); //ÀÌµ¿ ¾÷±Û
-		z1.move(10,10);
-		z1.powerUpgrade();// 1´Ü°è
-		z1.powerUpgrade();// 2´Ü°è
-		z1.powerUpgrade();// 3´Ü°è
-		z1.powerUpgrade();// ¾÷±Û¾ÈµÊ
-		System.out.println("power : " + z1.getPower());
-		System.out.println();
-		System.out.println();
-		Medic m = new Medic("¸Şµñ", 60, 1.875, "Å×¶õ", 5, 200);
-		System.out.println(m);
-		
-		m.maxEnergyUpgrade();//ÃÖ´ë ¿¡³ÊÁö 250
-		System.out.println("ÃÖ´ë¿¡³ÊÁö : " + m.getEnergy());
+    public static void main(String[] args) {
+        // ì €ê·¸ String name, int hp, double moveSpeed, String tribe, int power,
+        // í…Œë€ String name, int hp, double moveSpeed, String tribe, int heal, int energy
+        // í”„ë¡œí† ìŠ¤ String name, int hp, double moveSpeed, String tribe, int shield, int
+        // power
+        Zealot z1 = new Zealot("ì§ˆëŸ¿", 100, 1.875, "í”„ë¡œí† ìŠ¤", 16, 60);
+        
+        MovingBuilding b = new Command("ì»¤ë§¨ë“œ", 10);
+        System.out.println(z1);
+        System.out.println();
+        z1.move(5, 5); // ì´ë™
+        z1.moveUpgrade(); // ì´ë™ ì—…ê¸€
+        z1.move(10, 10);
+        z1.powerUpgrade();// 1ë‹¨ê³„
+        z1.powerUpgrade();// 2ë‹¨ê³„
+        z1.powerUpgrade();// 3ë‹¨ê³„
+        z1.powerUpgrade();// ì—…ê¸€ì•ˆë¨
+        System.out.println("power : " + z1.getPower());
+        System.out.println();
+        System.out.println();
+        Medic m = new Medic("ë©”ë”•", 60, 1.875, "í…Œë€", 5, 200);
+        System.out.println(m);
 
-		System.out.println("hp : " + m.getHp() + ", ÀÌµ¿¼Óµµ : " + m.getMoveSpeed());
-		System.out.println();
-		Mutallisk mt = new Mutallisk("¹ÂÅ»¸®½ºÅ©", 120, 3.126, "Àú±×", 9, "°øÁß");
-		System.out.println(mt);
-		System.out.println();
-		System.out.println();
-		System.out.println("power : " + mt.getPower());
-		mt.powerUpgrade();// 1´Ü°è
-		mt.powerUpgrade();// 2´Ü°è
-		mt.powerUpgrade();// 3´Ü°è
-		mt.powerUpgrade();// ¾÷±Û¾ÈµÊ
-		System.out.println("power : " +mt.getPower());
-	
-		z1.attack(mt);
-		mt.attack(z1);
-		z1.attack(z1);
+        m.maxEnergyUpgrade();// ìµœëŒ€ ì—ë„ˆì§€ 250
+        System.out.println("ìµœëŒ€ì—ë„ˆì§€ : " + m.getEnergy());
 
-		m.heal(z1);
-		m.heal(m);
-	}
+        System.out.println("hp : " + m.getHp() + ", ì´ë™ì†ë„ : " + m.getMoveSpeed());
+        System.out.println();
+        Mutallisk mt = new Mutallisk("ë®¤íƒˆë¦¬ìŠ¤í¬", 120, 3.126, "ì €ê·¸", 9);
+        System.out.println(mt);
+        System.out.println();
+        System.out.println();
+        System.out.println("power : " + mt.getPower());
+        mt.powerUpgrade();// 1ë‹¨ê³„
+        mt.powerUpgrade();// 2ë‹¨ê³„
+        mt.powerUpgrade();// 3ë‹¨ê³„
+        mt.powerUpgrade();// ì—…ê¸€ì•ˆë¨
+        System.out.println("power : " + mt.getPower());
+
+        mt.attack(z1);
+        z1.attack(z1);
+
+        m.heal(z1);
+        m.heal(m);
+
+        b.fly();
+        z1.attack(b);
+        mt.attack(b);
+
+        
+    }
 }

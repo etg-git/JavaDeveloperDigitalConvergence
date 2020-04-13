@@ -1,65 +1,76 @@
-class Medic extends Unit {
-	// ÇÑ¹øÇàµ¿ 5.86 = 11.72
-	// ¿¡³ÊÁö1 = hp+2
-	// 50 25
-	private int heal;
-	private int energy;
-	public final int MAX_ENERGY = 250;
-	public final int MINERAL = 50;
-	public final int GAS = 25;
+class Medic extends GroundUnit implements IHeal {
 
-	public final int MEDIC_MAX_HP = 60;
-	public Medic(String name, int hp, double moveSpeed, String tribe, int heal, int energy) {
-		super(name, hp, moveSpeed, tribe);
-		setHeal(heal);
-		setEnergy(energy);
-	}
-	public int getHeal() {
-		return heal;
-	}
-	public int getEnergy() {
-		return energy;
-	}
-	public void setHeal(int heal) {
-		this.heal = heal;
-	}
-	public void setEnergy(int energy) {
-		this.energy = energy;
-	}
-	// Èú ±â´É(overroading)
-	public void heal(Zealot z) {
-		if(z.getHp() != 0) {
-				z.setHp(z.getHp() + heal);
-				if(z.getHp() < z.ZEALOT_MAX_HP) {
-					System.out.println(getName() + "°¡(ÀÌ) " + z.getName() + "À»(¸¦)" + heal + "¸¸Å­ Ä¡À¯ÇÕ´Ï´Ù.");
-				}
-		}else {
-				System.out.println("Ä¡À¯ ÇÒ ¼ö ¾ø½À´Ï´Ù");
-			}
-	}
-	public void heal(Medic m) {
-		if(m.getHp() != 0) {
-				m.setHp(m.getHp() + heal);
-				if(m.getHp() < MEDIC_MAX_HP) {
-					System.out.println(getName() + "°¡(ÀÌ) " + m.getName() + "À»(¸¦)" + heal + "¸¸Å­ Ä¡À¯ÇÕ´Ï´Ù.");
-				}
-		}else {
-				System.out.println("Ä¡À¯ ÇÒ ¼ö ¾ø½À´Ï´Ù");
-			}
-	}
-	public int maxEnergyUpgrade() {
-		if(getEnergy() >= MAX_ENERGY) {
-			System.out.println("´õÀÌ»ó ¾÷±Û ÇÒ ¼ö ¾ø½À´Ï´Ù.");
-			return getEnergy();
-		}
-		else {
-			setEnergy(getEnergy() + 50);
-			System.out.println("¾÷±Û¿Ï·á");
-			return getEnergy();
-		}
-	}
-	@Override
-	public String toString() {
-		return "¸Şµñ ½ºÅİ \n" + super.toString() + "heal : " + heal+ "\nenergy : " + energy + "\n¹Ì³×¶ö : " + MINERAL + "\n°¡½º : " + GAS;
-	}
+    // í•œë²ˆí–‰ë™ 5.86 = 11.72
+    // ì—ë„ˆì§€1 = hp+2
+    // 50 25
+    private int heal;
+    private int energy;
+    public final int MAX_ENERGY = 250;
+    public final int MINERAL = 50;
+    public final int GAS = 25;
+
+    public final static int MEDIC_MAX_HP = 60;
+
+    public Medic(String name, int hp, double moveSpeed, String tribe, int heal, int energy) {
+        super(name, hp, moveSpeed, tribe);
+        setHeal(heal);
+        setEnergy(energy);
+    }
+
+    public int getHeal() {
+        return heal;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void setHeal(int heal) {
+        this.heal = heal;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+
+    // í ê¸°ëŠ¥(overroading)
+    @Override
+    public void heal(GroundUnit u) {
+        if (u instanceof Zealot) {
+            if (u.isAlive()) {
+                u.setHp(u.getHp() + heal);
+                if (u.getHp() <= Zealot.ZEALOT_MAX_HP) {
+                    System.out.println(getName() + "ê°€(ì´) " + u.getName() + "ì„(ë¥¼)" + heal + "ë§Œí¼ ì¹˜ìœ í•©ë‹ˆë‹¤.");
+                }
+            } else {
+                System.out.println("ì¹˜ìœ  í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
+            }
+        } else if (u instanceof Medic) {
+            if (u.isAlive()) {
+                u.setHp(u.getHp() + heal);
+                if (u.getHp() <= Medic.MEDIC_MAX_HP) {
+                    System.out.println(getName() + "ê°€(ì´) " + u.getName() + "ì„(ë¥¼)" + heal + "ë§Œí¼ ì¹˜ìœ í•©ë‹ˆë‹¤.");
+                }
+            } else {
+                System.out.println("ì¹˜ìœ  í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
+            }
+        }
+    }
+
+    public int maxEnergyUpgrade() {
+        if (getEnergy() >= MAX_ENERGY) {
+            System.out.println("ë”ì´ìƒ ì—…ê¸€ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+            return getEnergy();
+        } else {
+            setEnergy(getEnergy() + 50);
+            System.out.println("ì—…ê¸€ì™„ë£Œ");
+            return getEnergy();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "<<ë©”ë”• ìŠ¤í…Ÿ>>\n" + super.toString() + "heal : " + heal + "\nenergy : " + energy + "\në¯¸ë„¤ë„ : " + MINERAL
+                + "\nê°€ìŠ¤ : " + GAS;
+    }
 }

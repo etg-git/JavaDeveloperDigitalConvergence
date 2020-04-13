@@ -1,67 +1,83 @@
-abstract class Unit  {
-	private String name;
-	private int hp;
-	private double moveSpeed;
-	private String tribe;
-	private int x;
-	private int y;
+abstract class Unit {
+    
 
-	public static int MIN_HP = 0;
+    private String name;
+    private int hp;
+    private double moveSpeed;
+    private String tribe;
+    private int x;
+    private int y;
+    private boolean alive;
+    
 
-	public Unit(String name, int hp, double moveSpeed, String tribe) {
-		setName(name);
-		setHp(hp);
-		setMoveSpeed(moveSpeed);
-		setTribe(tribe);
-	}
-	public String getName() {
-		return name;
-	}
-	public int getHp() {
-		return hp;
-	}
-	public double getMoveSpeed() {
-		return moveSpeed;
-	}
-	public String getTribe() {
-		return tribe;
-	}
-	public int getX() {
-		return x;
-	}
-	public int getY() {
-		return y;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	public void setMoveSpeed(double moveSpeed) {
-		this.moveSpeed = moveSpeed;
-	}
-	public void setTribe(String tribe) {
-		this.tribe = tribe;
-	}
-	public void setX(int x) {
-		this.x = x;
-	}
-	public void setY(int y) {
-		this.y = y;
-	}
-	//ÀÌµ¿°Å¸®¹ÝÈ¯
-	public void move(int x, int y) {
-		this.x = x;
-		this.y = y;
-		System.out.println("(" + this.x + "," + this.y + ") ·Î ÀÌµ¿");
-		System.out.println("ÇöÀçÀ§Ä¡ µµÂø");
-	}
-	@Override
-	public String toString() {
-		String info = "hp : " + hp + "\n";
-		info += "moveSpeed : " + moveSpeed + "\n";
-		info += "tribe : " + tribe + "\n";
-		return info;
-	}
+    public Unit(String name, int hp, double moveSpeed, String tribe) {
+        setName(name);
+        setHp(hp);
+        setMoveSpeed(moveSpeed);
+        setTribe(tribe);
+    }
+
+    public String getName() {
+        return name;
+    }
+    public int getHp() {
+        return hp;
+    }
+    public double getMoveSpeed() {
+        return moveSpeed;
+    }
+    public String getTribe() {
+        return tribe;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public boolean isAlive() {
+        if(this.hp <= 0) {
+            alive = false;
+            return alive;
+        } else {
+            return alive = true;
+        }
+        
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+    public void setX(int x) {
+        this.x = x;
+    }
+    public void setY(int y) {
+        this.y = y;
+    }
+    public void setMoveSpeed(double moveSpeed) {
+        this.moveSpeed = moveSpeed;
+    }
+    public void setTribe(String tribe) {
+        this.tribe = tribe;
+    }
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+    // ì´ë™ê±°ë¦¬ë°˜í™˜
+    public void move(int x, int y) {
+        setX(x);
+        setY(y);
+        System.out.println("(" + this.x + "," + this.y + ") ë¡œ ì´ë™");
+        System.out.println("í˜„ìž¬ìœ„ì¹˜ ë„ì°©");
+    }
+
+    @Override
+    public String toString() {
+        String info = "hp : " + hp + "\n";
+        info += "moveSpeed : " + moveSpeed + "\n";
+        info += "tribe : " + tribe + "\n";
+        return info;
+    }
 }

@@ -1,39 +1,58 @@
-class Mutallisk extends AttackUnit {
-	//100 100
-	public final int MAX_POWER = 12;
-	public final int MINERAL = 100;
-	public final int GAS = 100;
+class Mutallisk extends AirUnit implements IAllAttack, IPowerUpgrade {
+    // 100 100
+    public final int MAX_POWER = 12;
+    public final int MINERAL = 100;
+    public final int GAS = 100;
+    private int power;
+    public final static int MUTALLISK_MAX_HP = 100;
 
-	public final int MUTALLISK_MAX_HP = 100;
+    public Mutallisk(String name, int hp, double moveSpeed, String tribe, int power) {
+        super(name, hp, moveSpeed, tribe);
+        setPower(power);
+    }
 
-	public Mutallisk(String name, int hp, double moveSpeed, String tribe, int power, String attType) {
-		super(name, hp, moveSpeed, tribe, power, attType);
-	}
-	@Override
-	protected int powerUpgrade() {
-		if(MAX_POWER <= getPower()) {
-			System.out.println("´õÀÌ»ó ¾÷±Û ¸øÇÔ");
-			return getPower();
-		}
-		else {
-			setPower(getPower() + 1);
-			System.out.println("¾÷±Û¿Ï·á");
-			return getPower();
-		}
-	}
-	//overroading
-	public void attack(AttackUnit au) {
-		System.out.println(getName() + "°¡(ÀÌ) "+ au.getName() + "À»(¸¦) °ø°Ý·Â" + getPower() + "·Î °ø°ÝÇÕ´Ï´Ù.");
-		if(au.getHp() <= MIN_HP) {
-			System.out.println(au.getName() + "°¡ Á×À½");
-			au.setHp(MIN_HP);
-		} else {
-			au.setHp(au.getHp() - getPower());
-		}
-	}
-	@Override
-	public String toString() {
-		return "¹ÂÅ» ½ºÅÝ \n" + super.toString() + "\n¹Ì³×¶ö : " + MINERAL + "\n°¡½º : " + GAS;
-	}
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    @Override
+    public void powerUpgrade() {
+        if (MAX_POWER <= getPower()) {
+            System.out.println("ë”ì´ìƒ ì—…ê¸€ ëª»í•¨");
+        } else {
+            setPower(getPower() + 1);
+            System.out.println("ì—…ê¸€ì™„ë£Œ");
+        }
+    }
+
+    @Override
+    public void attack(Unit u) {
+        System.out.println(getName() + "ê°€(ì´) " + u.getName() + "ì„(ë¥¼) ê³µê²©ë ¥" + getPower() + "ë¡œ ê³µê²©í•©ë‹ˆë‹¤.");
+        if (isAlive() == false) {
+            System.out.println(u.getName() + "ê°€ ì£½ìŒ");
+        } else {
+            u.setHp(u.getHp() - getPower());
+        }
+    }
+    @Override
+    public void attack(Building b) {
+        if(b instanceof Command) {
+            if(b.isDestroy() == false) {
+                System.out.println(getName() + "ì€" + b.getName() + "ì„ ê³µê²©í•˜ê³ ìžˆìŠµë‹ˆë‹¤");
+                b.setHp(b.getHp() - getPower());
+            }
+            if(b.isDestroy()){
+                System.out.println(b.getName() + "ê°€ íŒŒê´´ë˜ì—ˆìŠµë‹ˆë‹¤.");
+            }
+        }
+    }
+    @Override
+    public String toString() {
+        return "<<<ë®¤íƒˆ ìŠ¤í…Ÿ>>> \n" + super.toString() + "\në¯¸ë„¤ëž„ : " + MINERAL + "\nê°€ìŠ¤ : " + GAS;
+    }
 
 }

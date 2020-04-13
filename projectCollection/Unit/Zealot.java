@@ -1,60 +1,84 @@
-class Zealot extends AttackUnit {
-	//100,0
-	private int shield;
-	public final int MAX_POWER = 22;
-	public final int MINERAL = 100;
-	public final int GAS = 0;
-	
-	public final int ZEALOT_MAX_HP = 100;
+class Zealot extends GroundUnit implements IMoveUpgrade, IGroundAttack, IPowerUpgrade {
+    // 100,0
+    private int power;
+    private int shield;
+    public final int MAX_POWER = 22;
+    public final int MINERAL = 100;
+    public final int GAS = 0;
 
-	public Zealot(String name, int hp, double moveSpeed
-		, String tribe, int power, String attType, int shield) {
-		super(name, hp, moveSpeed, tribe, power, attType);
-		setShield(shield);
-	}
-	public int getShield() {
-		return shield;
-	}
-	public void setShield(int shield) {
-		this.shield = shield;
-	}
-	@Override
-	protected void attack(AttackUnit au) {
-		if(au.getAttType()== "°øÁß") {
-			System.out.println("¸ø¶§¸²");
-			au.getHp();
-		}
-		else if(au.getHp() <= MIN_HP) {
-			System.out.println(au.getName() + "°¡ Á×À½");
-			au.setHp(MIN_HP);
-		} else {
-			System.out.println(getName() + "°¡ "+ au.getName() + "À»(¸¦) °ø°İ·Â" + getPower() + "·Î °ø°İÇÕ´Ï´Ù.");
-			au.setHp(au.getHp() - getPower());
-		}
-	}
-	// 1.875 -> 2.813
-	public double moveUpgrade() {
-		setMoveSpeed(2.813);
-		System.out.println("ÀÌ¼Ó ¾÷±Û ¿Ï·á," + getMoveSpeed() + "¼Óµµ·Î ÀÌµ¿ÇÕ´Ï´Ù.");
-		return getMoveSpeed();
-	}
-	//1,2,3´Ü°è ¾÷±Û
-	@Override
-	protected int powerUpgrade() {
-		if(MAX_POWER <= getPower()) {
-			System.out.println("´õÀÌ»ó ¾÷±Û ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+    public final static int ZEALOT_MAX_HP = 100;
 
-			return getPower();
-		}
-		else {
-			System.out.println("¾÷±Û ¿Ï·á");
-			setPower(getPower() + 2);
-			return getPower();
-		}
-	}
-	@Override
-	public String toString() {
-		return "Áú·µ ½ºÅÈ \n" + super.toString() + "\nshield : " + shield + "\n"
-				+ "¹Ì³×¶ö : " + MINERAL + "\n°¡½º : " + GAS;
-	}
+    public Zealot(String name, int hp, double moveSpeed, String tribe, int power, int shield) {
+        super(name, hp, moveSpeed, tribe);
+        setShield(shield);
+        setPower(power);
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getShield() {
+        return shield;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    public void setShield(int shield) {
+        this.shield = shield;
+    }
+
+    @Override
+    public void attack(GroundUnit g) {
+        if (isAlive() == false) {
+            System.out.println(g.getName() + " (ì´)ê°€ ì£½ìŒ");
+        } else {
+            System.out.println(getName() + "ê°€ " + g.getName() + " ì„(ë¥¼) ê³µê²©ë ¥" + getPower() + "ë¡œ ê³µê²©í•©ë‹ˆë‹¤.");
+            g.setHp(g.getHp() - getPower());
+        }
+    }
+
+    @Override
+    public void attack(MovingBuilding b) {
+        if(b instanceof Command) {
+            if(b.isFlying() == false && b.isDestroy() == false) {
+                System.out.println(getName() + "ì€ " + b.getName() + " ì„ ê³µê²©í•˜ê³ ìˆìŠµë‹ˆë‹¤");
+                b.setHp(b.getHp() - getPower());
+
+                if(b.isDestroy()){
+                    System.out.println(b.getName() + "ê°€ íŒŒê´´ë˜ì—ˆìŠµë‹ˆë‹¤.");
+                }
+            }else {
+                System.out.println(getName() + "ì€ " + b.getName() + " ê³µê²©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+            }
+        }
+    }
+    @Override
+    public void attack(Building b) {
+
+    }
+    // 1.875 -> 2.813
+    @Override
+    public void moveUpgrade() {
+        setMoveSpeed(2.813);
+        System.out.println("ì´ì† ì—…ê¸€ ì™„ë£Œ," + getMoveSpeed() + " ì†ë„ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
+    }
+
+    // 1,2,3ë‹¨ê³„ ì—…ê¸€
+    @Override
+    public void powerUpgrade() {
+        if (MAX_POWER <= getPower()) {
+            System.out.println("ë”ì´ìƒ ì—…ê¸€ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+        } else {
+            System.out.println("ì—…ê¸€ ì™„ë£Œ");
+            setPower(getPower() + 2);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "<<ì§ˆëŸ¿ ìŠ¤íƒ¯>>\n" + super.toString() + "\nshield : " + shield + "\n" + "ë¯¸ë„¤ë„ : " + MINERAL + "\nê°€ìŠ¤ : " + GAS;
+    }
 }

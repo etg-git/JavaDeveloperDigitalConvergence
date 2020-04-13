@@ -1,0 +1,3 @@
+interface IPowerUpgrade {
+    void powerUpgrade();
+}
