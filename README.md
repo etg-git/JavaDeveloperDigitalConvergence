@@ -129,5 +129,4 @@ JAVA base DigitalConvergence Developer
 <img src = "image/StarCraftUML2.png">
 <img src = "image/StarCraftUML1.png">
 
-
 </details>
