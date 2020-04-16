@@ -133,9 +133,9 @@ JAVA base DigitalConvergence Developer
 
 **<details><summary>Design Pattern</summary>**
 
-**디자인 패턴**
+**UML**
 
-<img src = "image/StarCraftUML.PNG">
-<img src = "image/IAttackable.PNG" >
+<img src = "image/designpattern2.PNG">
+<img src = "image/designpattern1.PNG">
 
 </details>
