@@ -38,7 +38,7 @@ JAVA base DigitalConvergence Developer
 
 </details>
 
-## 실습1
+## 실습
 
 **<details><summary>VendingMachine UML</summary>**
 
