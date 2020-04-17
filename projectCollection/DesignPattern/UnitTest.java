@@ -8,18 +8,21 @@ interface IAirMove {
 	void move(Point move);
 }
 //mark interface
-interface IBiology {
+interface IHealing {
 }
 interface IAttackable {
 	void attack(Unit unit);
+}
+interface IPower extends IAttackable {
 	int getPower();
 }
-class GroundAttackable implements IAttackable {
+class GroundAttackable implements IPower {
 	private int power;
 	
 	public GroundAttackable(int power) {
 		setPower(power);
 	}
+	@Override
 	public int getPower() {
 		return power;
 	}
@@ -46,7 +49,7 @@ class GroundAttackable implements IAttackable {
 		return "power : " + power + "\n";
 	}
 }
-class AirAttackable implements IAttackable {
+class AirAttackable implements IPower {
 	private int power;
 	
 	public AirAttackable(int power) {
@@ -78,7 +81,7 @@ class AirAttackable implements IAttackable {
 		return "power : " + power + "\n";
 	}
 }
-class AllAttackable implements IAttackable {
+class AllAttackable implements IPower {
 	private int power;
 	
 	public AllAttackable(int power) {
@@ -106,16 +109,10 @@ class AllAttackable implements IAttackable {
 	}
 }
 class NoAttackable implements IAttackable {
-	
-	@Override
-	public int getPower() {
-		return 0;
-	}
 	@Override
 	public void attack(Unit unit) {
 		System.out.println("공격할수없다");
 	}
-	
 }
 abstract class Unit {
 	private int currentHp;
@@ -125,7 +122,8 @@ abstract class Unit {
 	private boolean alive;
 	public String tribe;
 	private IAttackable attackable;
-	
+	private IPower power;
+
 	public final int MAX_HP;
 	
 	public Unit(int currentHp, String name, Point location, double moveSpeed, String tribe, int max_hp) {
@@ -141,13 +139,19 @@ abstract class Unit {
 		attackable.attack(unit);
 	}
 	public int performPower() {
-		return attackable.getPower();
+		return power.getPower();
 	}
 	public IAttackable getAttackable() {
 		return attackable;
 	}
 	public void setAttackable(IAttackable attackable) {
 		this.attackable = attackable;
+	}
+	public IPower getPower() {
+		return power;
+	}
+	public void setPower(IPower power) {
+		this.power = power;
 	}
 	public int getCurrentHp() {
 		return currentHp;
@@ -211,6 +215,7 @@ abstract class Unit {
 	}
 }
 class Point {
+
 	private int x;
 	private int y;
 	
@@ -227,12 +232,16 @@ class Point {
 		this.x = x;
 		this.y = y;
 	}
+	public void setLocation(Point p) {
+		this.x = p.getX();
+		this.y = p.getY();
+	}
 	@Override
 	public String toString() {
 		return "(" + x + "," + y + ")에 있음";
 	}
 }
-class Medic extends Unit implements IBiology, IGroundMove {
+class Medic extends Unit implements IHealing, IGroundMove {
 	private int mana;
 	private int healAmount;
 	
@@ -259,16 +268,15 @@ class Medic extends Unit implements IBiology, IGroundMove {
 
 		System.out.println("(" + move.getX() + "," + move.getY() + ")로 이동");
 	}
-	public void heal(Unit u) {
-		if(u instanceof IBiology) {
-			if(u.isAlive() && u.MAX_HP > u.getCurrentHp()) {
-				u.setCurrentHp(u.getCurrentHp() + getHealAmount());
-				setMana(getMana() - 7);
+	public void heal(IHealing h) {
+		Unit u = (Unit)h;
+		if(u.isAlive() && u.MAX_HP > u.getCurrentHp()) {
+			u.setCurrentHp(u.getCurrentHp() + getHealAmount());
+			setMana(getMana() - 7);
 
-				if(u.getCurrentHp() >= u.MAX_HP) {
-					u.setCurrentHp(u.MAX_HP);
-					System.out.println("최대체력입니다");
-				}
+			if(u.getCurrentHp() >= u.MAX_HP) {
+				u.setCurrentHp(u.MAX_HP);
+				System.out.println("최대체력입니다");
 			}
 		}
 		else {
@@ -280,7 +288,7 @@ class Medic extends Unit implements IBiology, IGroundMove {
 		return super.toString() + "mana : " + mana + "\n" + "heaAmount : " + healAmount + "\n";
 	}
 }
-class Zealot extends Unit implements IGroundMove, IMoveUpgrade, IBiology {
+class Zealot extends Unit implements IGroundMove, IMoveUpgrade, IHealing {
 	private int shield;
 	
 	public Zealot(int currentHp) {
@@ -303,7 +311,6 @@ class Zealot extends Unit implements IGroundMove, IMoveUpgrade, IBiology {
 	@Override
 	public void moveUpgrade() {
 		setMoveSpeed(2.725);
-
 		System.out.println("발업 완료");
 	}
 	@Override
@@ -334,14 +341,15 @@ class UnitTest {
 		Point zealotMove = new Point(3,3);
 		
 		Unit m = new Medic(50);
-
 		//최대체력 100
-		Unit z = new Zealot(90);
+		Zealot z = new Zealot(80);
 		
 		Unit mt = new Mutallisk(90);
-		System.out.println(z.performPower());
+		Unit u = (Unit)z;
+		System.out.println(u.performPower());
 
 		Medic m2 = (Medic)m;
+		
 		System.out.println(z.getCurrentHp());
 		m2.heal(z);
 		System.out.println(z.getCurrentHp());
