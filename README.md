@@ -135,7 +135,7 @@ JAVA base DigitalConvergence Developer
 
 **UML**
 
-<img src = "image/designpattern2.PNG">
-<img src = "image/designpattern1.PNG">
+<img src = "image/Star2UML.PNG">
+<img src = "image/StarUML.PNG">
 
 </details>
