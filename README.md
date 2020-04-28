@@ -1,6 +1,6 @@
 JAVA base DigitalConvergence Developer
 ===
-## 목적
+### 목적
 **<details><summary>정보</summary>**
 > * 디지털 기술을 기반으로 다양한 기기의 융합, 네트워크의 융합, 콘텐츠의 융합을 통해 새로운 형태의 제품이나 융합서비스를 창출하기 위하여 기기, 네트워크, 콘텐츠의 기획, 설계, 제작, 운용 및 시험
 > * 컴퓨터 프로그래밍 언어로 각 업무에 맞는 소프트웨어의 기능에 관한 설계, 구현 및 테스트를 수행하고, 사용자에게 배포하며, 버전관리를 통해 제품의 성능을 향상시키고, 서비스를 개선
@@ -102,8 +102,6 @@ JAVA base DigitalConvergence Developer
 
 </details>
 
-안녕
-
 **<details><summary>StarUnit UML</summary>**
 
 **((interface)) IPowerUpgrade, IMoveUpgrade, IAllAttack, IHeal**
@@ -140,4 +138,7 @@ JAVA base DigitalConvergence Developer
 <img src = "image/Star2UML.PNG">
 <img src = "image/StarUML.PNG">
 
+</details>
+
+**<details><Summary>Lotto UML</summary>**
 </details>
