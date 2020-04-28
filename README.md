@@ -141,4 +141,5 @@ JAVA base DigitalConvergence Developer
 </details>
 
 **<details><Summary>Lotto UML</summary>**
+<img src = "image/LottoUML.PNG">
 </details>
