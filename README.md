@@ -18,7 +18,7 @@ JAVA base DigitalConvergence Developer
 ####
 > <img src ="image/javabook.jpg" width="230px">
 
-> **03-16 ~ 05, api포함(Collection(List, Set), Map(Hashing), (String, StringBuffer, StringBuilder))**
+> **03-16 ~ 05, api포함(Collection(List, Set), Map(Hashing), (String, StringBuffer, StringBuilder)), JavaSwing**
 
 > <img src = "image/sql.jpg" width="230px" height = "300px">
 
@@ -144,6 +144,7 @@ JAVA base DigitalConvergence Developer
 <img src = "image/LottoUML.PNG">
 </details>
 
+**<details><Summary>JavaSwing</summary>**
 ### JFrame Practice
 
 ##### Answer1
@@ -158,8 +159,16 @@ JAVA base DigitalConvergence Developer
 ##### Answer4
 <img src = "image/JFrame4.JPG">
 
+---
+
 ### Event Practice
 ..
 
+---
+
 ### Team Project
 ..
+
+---
+
+</details>
