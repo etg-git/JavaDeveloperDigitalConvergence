@@ -143,3 +143,23 @@ JAVA base DigitalConvergence Developer
 **<details><Summary>Lotto UML</summary>**
 <img src = "image/LottoUML.PNG">
 </details>
+
+### JFrame Practice
+
+##### Answer1
+<img src = "image/JFrame1.JPG">
+
+##### Answer2
+<img src = "image/JFrame2.JPG">
+
+##### Answer3
+<img src = "image/JFrame3.JPG">
+
+##### Answer4
+<img src = "image/JFrame4.JPG">
+
+### Event Practice
+..
+
+### Team Project
+..
