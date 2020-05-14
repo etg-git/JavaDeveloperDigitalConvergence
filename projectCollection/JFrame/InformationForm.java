@@ -142,6 +142,7 @@ public class InformationForm extends JFrame{
 		pnlTWSouth.add(pnlHobby1);
 		pnlTWSouth.add(pnlHobby2);
 
+
 		pnlTWest.add(pnlTWNorth, BorderLayout.NORTH);
 		pnlTWest.add(pnlTWSouth, BorderLayout.SOUTH);
 
