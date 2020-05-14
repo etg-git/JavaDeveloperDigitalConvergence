@@ -18,7 +18,7 @@ JAVA base DigitalConvergence Developer
 ####
 > <img src ="image/javabook.jpg" width="230px">
 
-> **03-16 ~ 05, api포함(Collection(List, Set), Map(Hashing), (String, StringBuffer, StringBuilder)), JavaSwing**
+> **03-16 ~ 05, api포함(Collection(List, Set), Map(Hashing), (String, StringBuffer, StringBuilder)), JavaSwing, InnerClass, Anonymous InnerClass, 람다식**
 
 > <img src = "image/sql.jpg" width="230px" height = "300px">
 
@@ -162,9 +162,11 @@ JAVA base DigitalConvergence Developer
 ---
 
 ### Event Practice
-..
 
----
+##### 1.묵찌빠
+
+<img src = "image/MJB.PNG">
+<img src = "image/MJB2.PNG">
 
 ### Team Project
 ..
