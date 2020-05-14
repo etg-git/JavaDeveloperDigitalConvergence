@@ -163,10 +163,11 @@ JAVA base DigitalConvergence Developer
 
 ### Event Practice
 
-##### 1.묵찌빠
+##### 1. 묵찌빠
 
-<img src = "image/MJB.PNG">
+<img src = "image/MJB1.PNG">
 <img src = "image/MJB2.PNG">
+<img src = "image/MJB.PNG">
 
 ### Team Project
 ..
