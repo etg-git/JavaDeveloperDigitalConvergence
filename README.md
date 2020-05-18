@@ -169,6 +169,13 @@ JAVA base DigitalConvergence Developer
 <img src = "image/MJB2.PNG">
 <img src = "image/MJB.PNG">
 
+##### 2. Fruits Dialog
+
+<img src = "image/Grid,mouseEvent.PNG">
+<img src = "image/click.png">
+<img src = "image/JPopup.png">
+<img src = "imgae/mouseClicked.png">
+
 ### Team Project
 ..
 
