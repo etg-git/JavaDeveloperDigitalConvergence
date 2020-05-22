@@ -76,8 +76,8 @@ public class LottoResult extends JFrame {
 		pnlNorth = new JPanel();
 
 		pnlCenter = new LottoResultItem[slot.getLottoLists().size()]; // 당첨번호들
-																	// 가지고있는만큼
-																	// 생성
+																		// 가지고있는만큼
+																		// 생성
 
 		lblWinningNumber = new JLabel[7];
 	}
@@ -85,17 +85,18 @@ public class LottoResult extends JFrame {
 	private void setDisplay() {
 		pnlNorth.setForeground(new Color(0xFFFFFF));
 		pnlNorth.setBackground(new Color(0x123456));
-		
-		btnPercent.setMargin(new Insets(2,2,2,2));
+
+		btnPercent.setMargin(new Insets(2, 2, 2, 2));
 		btnPercent.setBackground(Color.ORANGE);
-		btnExit.setMargin(new Insets(2,2,2,2));
-		
+		btnExit.setMargin(new Insets(2, 2, 2, 2));
+
 		// 로또번호레이블 생성
 		for (int i = 0; i < pnlCenter.length; i++) {
 			pnlCenter[i] = new LottoResultItem(i + 1);
 
 			for (int j = 0; j < pnlCenter[i].getLottoNumbers().length; j++) {
-				pnlCenter[i].getLottoNumbers()[j].setIcon(new ImageIcon("img/ball" + String.valueOf(lottoNumberLists.get(i).get(j)) + ".png"));
+				pnlCenter[i].getLottoNumbers()[j]
+						.setIcon(new ImageIcon("img/ball" + String.valueOf(lottoNumberLists.get(i).get(j)) + ".png"));
 			}
 			pnlMain.add(pnlCenter[i]);
 		}
@@ -105,10 +106,12 @@ public class LottoResult extends JFrame {
 			lblWinningNumber[i] = new JLabel();
 			if (i == lblWinningNumber.length - 2) {
 				lblWinningNumber[i].setText("          +         ");
-				lblWinningNumber[i].setIcon(new ImageIcon("img/ball" + String.valueOf(lottoNumber.getWinningNumberList().get(i)) + ".png"));
-				
+				lblWinningNumber[i].setIcon(
+						new ImageIcon("img/ball" + String.valueOf(lottoNumber.getWinningNumberList().get(i)) + ".png"));
+
 			} else {
-				lblWinningNumber[i].setIcon(new ImageIcon("img/ball" + String.valueOf(lottoNumber.getWinningNumberList().get(i)) + ".png"));
+				lblWinningNumber[i].setIcon(
+						new ImageIcon("img/ball" + String.valueOf(lottoNumber.getWinningNumberList().get(i)) + ".png"));
 				lblWinningNumber[i].setText("     ");
 
 			}
@@ -128,7 +131,7 @@ public class LottoResult extends JFrame {
 	private void addListener() {
 		btnPercent.addActionListener((ae) -> {
 			LottoNumberCreate ln = new LottoNumberCreate();
-			JOptionPane.showMessageDialog(LottoResult.this, ln.count(),"나의행운은?", JOptionPane.OK_OPTION);
+			JOptionPane.showMessageDialog(LottoResult.this, count(), "나의행운은?", JOptionPane.OK_OPTION);
 		});
 		btnExit.addActionListener((ae) -> {
 			closeWindow();
@@ -147,18 +150,19 @@ public class LottoResult extends JFrame {
 		for (int i = 0; i < lottoNumberLists.size(); i++) {
 			winning = "";
 			sameLottoNumbers = new ArrayList<>(); // 산횟수만큼 로또번호들 차례대로 뽑기
-			
+
 			for (int j = 0; j < 6; j++) {
 				sameLottoNumbers.add(lottoNumberLists.get(i).get(j));
 			}
-			
+
 			Integer[] array = sameLottoNumbers.toArray(new Integer[0]);
 			sameLottoLists.add(sameLottoNumbers);
-			
-			sameLottoNumbers.retainAll(lottoNumber.getWinningNumberList()); // 일치번호 뽑기
-			
-			draw(i);//색깔주기
-			
+
+			sameLottoNumbers.retainAll(lottoNumber.getWinningNumberList()); // 일치번호
+																			// 뽑기
+
+			draw(i);// 색깔주기
+
 			int indexOfBonus = Arrays.binarySearch(array, lottoNumber.getWinningNumberList().get(6));
 			if (sameLottoNumbers.size() <= SLAP) {
 				winning += "꽝";
@@ -180,12 +184,46 @@ public class LottoResult extends JFrame {
 			pnlCenter[i].getPnlResult().setText(winning);
 		}
 	}
-	
+
+	// 2등이상 몇번?
+	public String count() {
+		boolean flag = true;
+		int count = 0;
+		String winner = "";
+		LottoNumberCreate number = new LottoNumberCreate();
+		ArrayList<Integer> sameLottoNumbers;
+		while (flag) {
+			number.winningNumberCreate();
+			for (int i = 0; i < lottoNumberLists.size(); i++) {
+				sameLottoNumbers = new ArrayList<>();
+				for (int j = 0; j < 6; j++) {
+					sameLottoNumbers.add(lottoNumberLists.get(i).get(j));
+				}
+				
+				sameLottoNumbers.retainAll(number.getWinningNumberList());
+				
+				Integer[] x = sameLottoNumbers.toArray(new Integer[0]);
+				count++;
+				int indexOfBonus = Arrays.binarySearch(x, number.getWinningNumberList().get(6));
+				if (sameLottoNumbers.size() == 6 && indexOfBonus < 0) {
+					winner = "\n" + sameLottoNumbers + " \n 1등";
+					count++;
+					flag = false;
+				} else if (sameLottoNumbers.size() == 6 && indexOfBonus >= 0) {
+					winner =  "\n" + sameLottoNumbers + "\n 2등";
+					count++;
+					flag = false;
+				}
+			}
+	}
+		return count + "번 " + winner + "당첨이 되었습니다.";
+	}
+
 	// 색깔주기
 	private void draw(int i) {
 		Integer[] array = lottoNumberLists.get(i).toArray(new Integer[0]);
 		for (int j = 0; j < sameLottoNumbers.size(); j++) {
-			
+
 			int findIndex = Arrays.binarySearch(array, sameLottoNumbers.get(j));
 			System.out.println(findIndex);
 			pnlCenter[i].getLottoNumbers()[findIndex].setBackground(new Color(0xF0F8FF));

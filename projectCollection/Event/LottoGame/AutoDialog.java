@@ -3,7 +3,6 @@ package kr.ac.green;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -14,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class AutoDialog extends JDialog {
 
@@ -64,7 +64,7 @@ public class AutoDialog extends JDialog {
 
 			lblNums[i] = new JLabel(new ImageIcon("img/ball" +String.valueOf(picker.getLottoNumberList().get(i)) + ".png"));
 			lblNums[i].setOpaque(true);
-			lblNums[i].setBackground(colors[rNum]);
+			lblNums[i].setBorder(new LineBorder(colors[rNum], 3));
 			lblNums[i].setForeground(Color.BLACK);
 			lblNums[i].setFont(new Font("Typo_Storm B", Font.BOLD, 40));
 
@@ -106,7 +106,7 @@ public class AutoDialog extends JDialog {
 				
 				lblNums[i].setIcon(new ImageIcon("img/ball" + String.valueOf(picker.getLottoNumberList().get(i) + ".png")));
 				
-//				lblNums[i].setBackground(colors[rNum]);
+				lblNums[i].setBorder(new LineBorder(colors[rNum], 3));
 			}
 		});
 
