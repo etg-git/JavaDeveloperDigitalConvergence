@@ -183,18 +183,31 @@ JAVA base DigitalConvergence Developer
 <img src = "image/LottoIntro.png">
 
 ##### (2) LottoSlot 처음 창 띄웠을때
+
 <img src = "image/LottoSlot.png">
+
 ##### (3) LottoSlot 체크를 할때
+
 <img src = "image/LottoSlot2.png">
+
 ##### (4) LottoSlot 자동 눌릴때
+
 <img src = "image/LottoSlot3.png">
+
 ##### (5) LottoSlot 수동 눌릴때
+
 <img src = "image/LottoSlot4.png">
+
 ##### (6) LottoSlot 로또번호 확인
+
 <img src = "image/LottoSlot5.png">
+
 ##### (7) LottoResult 결과확인
+
 <img src = "image/LottoResult.png">
+
 ##### (8) lucky
+
 <img src = "image/Lucky.png">
 
 
