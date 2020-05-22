@@ -23,10 +23,10 @@ public class Fruits extends JFrame {
 			"kiwi", "onion", "peach", "pear", "pepper", "pickle",
 			"pineapple", "raspberry", "strawberry", "tomato", "watermelon"};
 	private JPanel pnl;
-	
-	
+
+
 	private Image[] img;
-	
+
 	public Fruits() {
 		init();
 		setDisplay();
@@ -61,12 +61,11 @@ public class Fruits extends JFrame {
 	private void setDisplay() {
 		for (int i = 0; i < button.length; i++) {
 			img[i] = Toolkit.getDefaultToolkit().getImage(imgName[i] + ".jpg");
-			
+
 			button[i] = new JButton(new ImageIcon(imgName[i] + ".jpg"));
 			button[i].setBorder(new LineBorder(Color.WHITE));
 			pnl.add(button[i]);
 		}
-		
 		add(pnl, BorderLayout.CENTER);
 	}
 	private void addListeners() {
@@ -83,26 +82,26 @@ public class Fruits extends JFrame {
 				@Override
 				public void mouseExited(MouseEvent me) {
 					JButton src = (JButton)me.getSource();
-						src.setBorder(new LineBorder(Color.WHITE));	
+						src.setBorder(new LineBorder(Color.WHITE));
 				}
 			};
 			for (int i = 0; i < button.length; i++) {
 				int num = i;
 				button[i].addMouseListener(listener);
-				
+
 				button[i].addActionListener((ae)-> {
 					new FruitsImage(Fruits.this, num);
 				});
 			}
 		}
-	
+
 	private void showFrame() {
 		setTitle("Viewer");
 		setSize(370, 370);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
-		
+
 	}
 	public static void main(String[] args) {
 		new Fruits();

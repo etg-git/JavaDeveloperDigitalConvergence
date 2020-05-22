@@ -16,41 +16,42 @@ import javax.swing.JPopupMenu;
 import javax.swing.border.LineBorder;
 
 public class FruitsImage extends JDialog {
-	
+
 	private Fruits fruits;
 	private JLabel lbl;
 	private JLabel lblPage;
 	private JPanel pnlPage;
-	
+
 	private JPopupMenu pMenu;
 	private JMenuItem miBack;
 	private JMenuItem miAfter;
-	private int num;
-	
+
 	private Image img;
 	private Image newImage;
+
+	private int num;
 	public FruitsImage(Fruits fruits, int num) {
 		super(fruits, "Do u see?", true);
 		this.fruits = fruits;
-		this.num = num +1;
+		this.num = num + 1;
 		pMenu = new JPopupMenu();
 		pnlPage = new JPanel();
 		lblPage = new JLabel(this.num + "/20");
-		miBack = new JMenuItem("µÚ·Î");
-		miAfter = new JMenuItem("¾ÕÀ¸·Î");
-		
+		miBack = new JMenuItem("ë’¤ë¡œ");
+		miAfter = new JMenuItem("ì•ìœ¼ë¡œ");
+
 		pnlPage.add(lblPage);
 		pMenu.add(miBack);
 		pMenu.add(miAfter);
-		
+
 		img = fruits.getImg()[num];
 		newImage = img.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
-		
+
 		lbl = new JLabel(new ImageIcon(newImage));
-		
+
 		add(pnlPage, BorderLayout.NORTH);
 		add(lbl, BorderLayout.CENTER);
-		
+
 		addListeners();
 		showFrame();
 	}
@@ -66,52 +67,53 @@ public class FruitsImage extends JDialog {
 			}
 			@Override
 			public void mousePressed(MouseEvent me) {
-				showPopup(me);
+					showPopup(me);
 			}
 			@Override
 			public void mouseReleased(MouseEvent me) {
-				showPopup(me);
+					showPopup(me);
 			}
 			@Override
 			public void mouseClicked(MouseEvent me) {
-				int x = lbl.getWidth() / 2;
-				if(me.getX()>x) {
-					try {
-						num = num + 1;
-						backAfter(num);
-					}catch(ArrayIndexOutOfBoundsException e) {
-						JOptionPane.showMessageDialog(FruitsImage.this, "¾ø¾î¿ä", "»çÁøÀÌ ¾ø¾î¿ä", JOptionPane.CANCEL_OPTION);
-						num = 21;
+				if(me.getButton() == MouseEvent.BUTTON1){
+					int x = lbl.getWidth() / 2;
+					if(me.getX()>x) {
+						num  += 1;
+					} else {
+						num -= 1;
 					}
-					
-				} else {
-					try {
-						num = num -1;
-						backAfter(num);
-					}catch(ArrayIndexOutOfBoundsException e) {
-						JOptionPane.showMessageDialog(FruitsImage.this, "¾ø¾î¿ä", "»çÁøÀÌ ¾ø¾î¿ä", JOptionPane.CANCEL_OPTION);
-						num = 0;
-					}
+					backAfter(num);
 				}
 			}
 		});
 		miBack.addActionListener((ae) -> {
-				num = num -1;
+				num -= 1;
 				backAfter(num);
 		});
-		
+
 		miAfter.addActionListener((ae) -> {
-				num = num +1;
+				num += 1;
 				backAfter(num);
 		});
-		
+
 	}
 	public void backAfter(int num) {
-			lblPage.setText(num + "/20");
-			img = fruits.getImg()[num-1];
-			newImage = img.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
-			lbl.setIcon(new ImageIcon(newImage));
-		
+			try{
+				lblPage.setText(num + "/20");
+				img = fruits.getImg()[num-1];
+				newImage = img.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
+				lbl.setIcon(new ImageIcon(newImage));
+			} catch(ArrayIndexOutOfBoundsException e){
+				JOptionPane.showMessageDialog(FruitsImage.this, "ì—†ì–´ìš”", "ì‚¬ì§„ì´ì—†ì–´ìš”", JOptionPane.WARNING_MESSAGE);
+
+				if(this.num < 1) {
+					this.num = 1;
+				}
+				else if(this.num > 20){
+					this.num = 20;
+				}
+				lblPage.setText(this.num + "/20");
+			}
 	}
 	private void showPopup(MouseEvent me) {
 		if(me.isPopupTrigger()) {
