@@ -174,7 +174,7 @@ JAVA base DigitalConvergence Developer
 <img src = "image/Grid,mouseEvent.PNG">
 <img src = "image/click.png">
 <img src = "image/JPopup.png">
-<img src = "imgae/mouseClicked.png">
+<img src = "image/mouseClicked.png">
 
 ## 3. Lotto GUI(프로젝트 5.20 ~ 5.22)
 
