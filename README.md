@@ -144,7 +144,7 @@ JAVA base DigitalConvergence Developer
 <img src = "image/LottoUML.PNG">
 </details>
 
-**<details><Summary>JavaSwing</summary>**
+**<details><Summary>JavaSwing 연습</summary>**
 ### JFrame Practice
 
 ##### Answer1
@@ -176,7 +176,10 @@ JAVA base DigitalConvergence Developer
 <img src = "image/JPopup.png">
 <img src = "image/mouseClicked.png">
 
-## 3. Lotto GUI(프로젝트 5.20 ~ 5.22)
+</details>
+
+**<details><Summary>Lotto GUI</summary>**
+## Lotto GUI(프로젝트 5.20 ~ 5.22)
 
 ##### (1) LottoIntro
 
