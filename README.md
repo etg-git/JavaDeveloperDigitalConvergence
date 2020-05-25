@@ -188,7 +188,7 @@ JAVA base DigitalConvergence Developer
 
 ##### (3) LottoSlot 체크를 할때
 
-<img src = "image/LottoSlot2.png">
+<img src = "image/lottoslot2.png">
 
 ##### (4) LottoSlot 자동 눌릴때
 
