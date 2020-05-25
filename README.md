@@ -184,7 +184,7 @@ JAVA base DigitalConvergence Developer
 
 ##### (2) LottoSlot 처음 창 띄웠을때
 
-<img src = "image/lottoSlot.png">
+<img src = "image/lottoslot.png">
 
 ##### (3) LottoSlot 체크를 할때
 
