@@ -31,7 +31,7 @@ public class LottoOpening extends JFrame {
 	private void init() {
 		lottoImg = new JLabel(new ImageIcon("img/LottoOpening.gif"));
 		tBorder = new TitledBorder(new LineBorder(Color.YELLOW, 3), "CLICK");
-		click = new Font(Font.DIALOG, Font.BOLD, 30);
+		click = new Font(Font.DIALOG, Font.BOLD, 0);
 	}
 	private void setDisplay() {
 		tBorder.setTitleJustification(TitledBorder.CENTER);
@@ -54,7 +54,7 @@ public class LottoOpening extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent me) {
 				if(me.getButton() == me.BUTTON1) {
-					LottoOpening.this.setVisible(false);
+					dispose();
 					new LottoSlot();
 				}
 			}

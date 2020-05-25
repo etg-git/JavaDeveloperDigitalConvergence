@@ -73,4 +73,8 @@ public class LottoNumberCreate {
 		
 		return winningNumberList;
 	}
+	public static void main(String[] args) {
+		LottoNumberCreate n = new LottoNumberCreate();
+	}
+
 }

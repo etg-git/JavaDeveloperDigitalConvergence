@@ -88,12 +88,12 @@ public class AutoDialog extends JDialog {
 	private void addListener(int j) {
 		btnConfirm.addActionListener((ae) -> {
 			for (int i = 0; i < 6; i++) {
-				lottoSlot.getNumsItem()[j].getNumbers()[i].setIcon(
+				lottoSlot.getSlotItem()[j].getNumbers()[i].setIcon(
 						new ImageIcon("img/ball" + String.valueOf(picker.getLottoNumberList().get(i) + ".png")));
 			}
-			lottoSlot.getAmItem()[j].getRbAuto().setEnabled(false);
-			lottoSlot.getAmItem()[j].getRbManual().setEnabled(false);
-			lottoSlot.getNumsItem()[j].setVisible(true);
+			lottoSlot.getSlotItem()[j].getRbAuto().setEnabled(false);
+			lottoSlot.getSlotItem()[j].getRbManual().setEnabled(false);
+			lottoSlot.getSlotItem()[j].getPnlNumbers().setVisible(true);
 			lottoSlot.getLottoLists().add(picker.getLottoNumberList());
 			dispose();
 		});

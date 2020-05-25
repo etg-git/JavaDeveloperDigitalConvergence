@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -134,19 +132,20 @@ public class LottoResult extends JFrame {
 			JOptionPane.showMessageDialog(LottoResult.this, count(), "나의행운은?", JOptionPane.OK_OPTION);
 		});
 		btnExit.addActionListener((ae) -> {
-			closeWindow();
-		});
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent we) {
-				closeWindow();
-			}
+			this.setVisible(false);
+			new LottoSlot();
 		});
 	}
 
 	// 결과레이블 생성
 	public void result() {
 		sameLottoLists = new ArrayList<>();
+		
+		Integer[] winningNumber = lottoNumber.getWinningNumberList().toArray(new Integer[0]);
+		Integer[] arrayCopy = Arrays.copyOfRange(winningNumber, 0, 6);
+		
+		ArrayList<Integer> winningList = new ArrayList<>(Arrays.asList(arrayCopy));
+		
 		for (int i = 0; i < lottoNumberLists.size(); i++) {
 			winning = "";
 			sameLottoNumbers = new ArrayList<>(); // 산횟수만큼 로또번호들 차례대로 뽑기
@@ -154,19 +153,17 @@ public class LottoResult extends JFrame {
 			for (int j = 0; j < 6; j++) {
 				sameLottoNumbers.add(lottoNumberLists.get(i).get(j));
 			}
-
-			Integer[] array = sameLottoNumbers.toArray(new Integer[0]);
 			sameLottoLists.add(sameLottoNumbers);
 
-			sameLottoNumbers.retainAll(lottoNumber.getWinningNumberList()); // 일치번호
-																			// 뽑기
+			sameLottoNumbers.retainAll(winningList); // 일치번호 뽑기
+			
+			Integer[] arrayNumber = sameLottoNumbers.toArray(new Integer[0]);
+			
+			int indexOfBonus = Arrays.binarySearch(arrayNumber, lottoNumber.getWinningNumberList().get(6));
+			
+			draw(i);
 
-			draw(i);// 색깔주기
-
-			int indexOfBonus = Arrays.binarySearch(array, lottoNumber.getWinningNumberList().get(6));
-			if (sameLottoNumbers.size() <= SLAP) {
-				winning += "꽝";
-			} else if (sameLottoNumbers.size() == FIFTH) {
+			if (sameLottoNumbers.size() == FIFTH) {
 				winning += "5등 당첨";
 
 			} else if (sameLottoNumbers.size() == FOURTH) {
@@ -178,8 +175,10 @@ public class LottoResult extends JFrame {
 			} else if (sameLottoNumbers.size() == SECOND && indexOfBonus >= 0) {
 				winning += "2등 당첨";
 
-			} else {
+			} else if (sameLottoNumbers.size() == FIRST) {
 				winning += "1등 당첨";
+			} else {
+				winning += "꽝";
 			}
 			pnlCenter[i].getPnlResult().setText(winning);
 		}
@@ -199,9 +198,8 @@ public class LottoResult extends JFrame {
 				for (int j = 0; j < 6; j++) {
 					sameLottoNumbers.add(lottoNumberLists.get(i).get(j));
 				}
-				
 				sameLottoNumbers.retainAll(number.getWinningNumberList());
-				
+
 				Integer[] x = sameLottoNumbers.toArray(new Integer[0]);
 				count++;
 				int indexOfBonus = Arrays.binarySearch(x, number.getWinningNumberList().get(6));
@@ -210,37 +208,31 @@ public class LottoResult extends JFrame {
 					count++;
 					flag = false;
 				} else if (sameLottoNumbers.size() == 6 && indexOfBonus >= 0) {
-					winner =  "\n" + sameLottoNumbers + "\n 2등";
+					winner = "\n" + sameLottoNumbers + "\n 2등";
 					count++;
 					flag = false;
 				}
 			}
-	}
+		}
 		return count + "번 " + winner + "당첨이 되었습니다.";
 	}
-
 	// 색깔주기
 	private void draw(int i) {
 		Integer[] array = lottoNumberLists.get(i).toArray(new Integer[0]);
 		for (int j = 0; j < sameLottoNumbers.size(); j++) {
-
 			int findIndex = Arrays.binarySearch(array, sameLottoNumbers.get(j));
-			System.out.println(findIndex);
 			pnlCenter[i].getLottoNumbers()[findIndex].setBackground(new Color(0xF0F8FF));
 			pnlCenter[i].getLottoNumbers()[findIndex].setBorder(new LineBorder(Color.YELLOW, 2));
-		}
-	}
 
-	private void closeWindow() {
-		JOptionPane.showMessageDialog(this, "게임을 종료합니다", "EXIT", JOptionPane.INFORMATION_MESSAGE);
-		System.exit(0);
+		}
 	}
 
 	private void showDialog() {
 		setTitle("결과");
-		setSize(900, 400);
+		setResizable(true);
+		pack();
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setVisible(true);
 	}
 }

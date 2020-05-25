@@ -90,7 +90,7 @@ public class ManualDialog extends JDialog {
 		number[i].setFont(new Font(Font.SERIF, Font.BOLD, 0));
 		number[i].setBackground(getColor(1));
 		pnlEast.add(number[i]);
-		pnlEast.add(new JLabel(new ImageIcon("img/" + (i + 1) + ".png")));
+		pnlEast.add(new JLabel(new ImageIcon("img/circlebasic" + (i+1) + ".png")));
 	}
 
 	private void addCheckBoxListeners() {
@@ -130,12 +130,12 @@ public class ManualDialog extends JDialog {
 						JOptionPane.WARNING_MESSAGE);
 			} else {
 				for (int i = 0; i < 6; i++) {
-					slot.getNumsItem()[j].getNumbers()[i].setIcon(new ImageIcon(
+					slot.getSlotItem()[j].getNumbers()[i].setIcon(new ImageIcon(
 							"img/ball" + String.valueOf(lottoNumberList.get(i)) + ".png"));
 				}
-				slot.getAmItem()[j].getRbAuto().setEnabled(false);
-				slot.getAmItem()[j].getRbManual().setEnabled(false);
-				slot.getNumsItem()[j].setVisible(true);
+				slot.getSlotItem()[j].getRbAuto().setEnabled(false);
+				slot.getSlotItem()[j].getRbManual().setEnabled(false);
+				slot.getSlotItem()[j].getPnlNumbers().setVisible(true);
 				slot.getLottoLists().add(lottoNumberList);
 				dispose();
 			}
