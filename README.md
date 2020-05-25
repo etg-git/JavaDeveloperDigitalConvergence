@@ -184,11 +184,11 @@ JAVA base DigitalConvergence Developer
 
 ##### (2) LottoSlot 처음 창 띄웠을때
 
-<img src = "image/lottoslot.png">
+<img src = "image/LottoSlot1.png">
 
 ##### (3) LottoSlot 체크를 할때
 
-<img src = "image/lottoslot2.png">
+<img src = "image/check.png">
 
 ##### (4) LottoSlot 자동 눌릴때
 
@@ -216,6 +216,6 @@ JAVA base DigitalConvergence Developer
 
 ##### (10) lucky
 
-<img src = "image/lucky.png">
+<img src = "image/mylucky.png">
 
 </details>
