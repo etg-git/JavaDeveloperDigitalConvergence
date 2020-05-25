@@ -176,15 +176,15 @@ JAVA base DigitalConvergence Developer
 <img src = "image/JPopup.png">
 <img src = "imgae/mouseClicked.png">
 
-### 3. Lotto GUI(프로젝트 5.20 ~ 5.22)
+## 3. Lotto GUI(프로젝트 5.20 ~ 5.22)
 
 ##### (1) LottoIntro
 
-<img src = "image/LottoIntro.png">
+<img src = "image/opening.png">
 
 ##### (2) LottoSlot 처음 창 띄웠을때
 
-<img src = "image/LottoSlot.png">
+<img src = "image/lottoSlot.png">
 
 ##### (3) LottoSlot 체크를 할때
 
@@ -192,23 +192,30 @@ JAVA base DigitalConvergence Developer
 
 ##### (4) LottoSlot 자동 눌릴때
 
-<img src = "image/LottoSlot3.png">
+<img src = "image/auto.png">
 
-##### (5) LottoSlot 수동 눌릴때
+##### (5) LottoSlot 자동 저장
 
-<img src = "image/LottoSlot4.png">
+<img src = "image/autosave.png">
 
-##### (6) LottoSlot 로또번호 확인
+##### (6) LottoSlot 수동 눌릴때
 
-<img src = "image/LottoSlot5.png">
+<img src = "image/manual.png">
 
-##### (7) LottoResult 결과확인
+##### (7) LottoSlot 수동 저장
 
-<img src = "image/LottoResult.png">
+<img src = "image/manualsave.png">
 
-##### (8) lucky
+##### (8) 초기화
 
-<img src = "image/Lucky.png">
+<img src = "image/reset.png">
 
+##### (9) 결과창
+
+<img src = "image/result.png">
+
+##### (10) lucky
+
+<img src = "image/lucky.png">
 
 </details>
