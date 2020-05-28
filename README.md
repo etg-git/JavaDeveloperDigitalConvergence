@@ -227,7 +227,7 @@ JAVA base DigitalConvergence Developer
 
 ##### Read, Write 참고
 
-<img src = "image/IO.png">
+<img src = "image/IO.PNG">
 
 
 ##### 1. 메모장의 메뉴바 메뉴만들기
