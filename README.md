@@ -18,7 +18,7 @@ JAVA base DigitalConvergence Developer
 ####
 > <img src ="image/javabook.jpg" width="230px">
 
-> **03-16 ~ 05, api포함(Collection(List, Set), Map(Hashing), (String, StringBuffer, StringBuilder)), JavaSwing, InnerClass, Anonymous InnerClass, 람다식**
+> **03-16 ~ 05, api포함(Collection(List, Set), Map(Hashing), (String, StringBuffer, StringBuilder)), JavaSwing, InnerClass, Anonymous InnerClass, 람다식, file(Read,Write)**
 
 > <img src = "image/sql.jpg" width="230px" height = "300px">
 
@@ -220,5 +220,33 @@ JAVA base DigitalConvergence Developer
 ##### (10) lucky
 
 <img src = "image/mylucky.png">
+
+</details>
+
+**<details><Summary> File </Summary>**
+
+##### Read, Write 참고
+
+<img src = "image/IO.png">
+
+
+##### 1. 메모장의 메뉴바 메뉴만들기
+
+* document(insertUpdate)
+  * 파일이 업데이트 될때 frame의 title에 * 추가
+* 새로만들기(Ctrl + n)
+  * File이 null인지, 불러오기했는지
+* open
+  * 이전파일 저장할건지의 여부(JOptionPane)
+  * File 불러오기
+* save(Ctrl + s)
+  * open 파일을 저장
+  * 파일이 null일때 다른이름으로 저장
+* saveAs
+  * 다른이름으로 저장(JFileChooser)
+* exit
+  * 지금 파일을 저장할건지의 여부(JOptionPane)
+
+<img src = "image/notepadMenubar.png">
 
 </details>
