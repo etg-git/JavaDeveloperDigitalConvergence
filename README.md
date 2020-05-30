@@ -223,7 +223,7 @@ JAVA base DigitalConvergence Developer
 
 </details>
 
-**<details><Summary> File </Summary>**
+**<details><Summary>File</Summary>**
 
 ##### Read, Write 참고
 
@@ -248,5 +248,24 @@ JAVA base DigitalConvergence Developer
   * 지금 파일을 저장할건지의 여부(JOptionPane)
 
 <img src = "image/notepadMenubar.png">
+
+##### 2. 로그인,회원가입UI
+
+* 텍스트파일에 회원정보 저장
+* 로그인 창
+  * 회원정보 없을때
+  * 아이디와 패스워드 일치할때
+* 회원가입 창
+  * 아이디 입력 여부
+  * 패스워드, 재확인 입력 여부, 6자이상
+  * 이름 여부
+  * 닉네임 여부
+  * 성별 클릭 여부
+  * 패스워드와 재확인 일치하는지 여부
+  * 동일한 아이디있는지 여부
+* 회원정보 창
+  * TextArea에 회원정보 내용
+  * 로그아웃 기능
+  * 회원탈퇴(텍스트 파일에 회원정보 삭제)
 
 </details>
