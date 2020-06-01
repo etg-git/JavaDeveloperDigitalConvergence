@@ -223,7 +223,7 @@ JAVA base DigitalConvergence Developer
 
 </details>
 
-**<details><Summary> File </Summary>**
+**<details><Summary>File</Summary>**
 
 ##### Read, Write 참고
 
