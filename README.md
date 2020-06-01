@@ -181,6 +181,8 @@ JAVA base DigitalConvergence Developer
 **<details><Summary>Lotto GUI</summary>**
 ## Lotto GUI(프로젝트 5.20 ~ 5.22)
 
+##### [Code 클릭](https://github.com/etg-git/JavaDeveloperDigitalConvergence/tree/master/projectCollection/Event/LottoGame)
+
 ##### (1) LottoIntro
 
 <img src = "image/opening.png">
