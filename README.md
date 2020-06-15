@@ -270,4 +270,5 @@ JAVA base DigitalConvergence Developer
   * 로그아웃 기능
   * 회원탈퇴(텍스트 파일에 회원정보 삭제)
 
+##### 3. 주제 자유
 </details>
